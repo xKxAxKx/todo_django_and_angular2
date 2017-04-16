@@ -1,0 +1,15 @@
+django_project/**/__pycache__
+__pycache__
+*.pyc
+*.pyo
+__pycache__/
+
+env
+*.egg-info
+*.pot
+*.py[co]
+db.sqlite3
+node_modules
+.DS_Store
+*.map
+*.js
