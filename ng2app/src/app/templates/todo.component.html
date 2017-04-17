@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+      <div class="row">
+        <div class="input-field col s6">
+          <label [ngClass]="{'active': todo.title }" for="input_text">Title</label>
+          <input [(ngModel)]="todo.title" id="input_text" type="text" length="140">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label [ngClass]="{'active': todo.description }" for="input_text">Description</label>
+          <input [(ngModel)]="todo.description" id="input_text" type="text" length="140">
+        </div>
+      </div>
+      <div class="center-align">
+        <a href="" (click)="save()">
+          <span *ngIf="todo.id">変更する</span>
+          <span *ngIf="!todo.id">追加する</span>
+        </a>
+        <a href="" (click)="goBack()">戻る</a>
+        <a href="" (click)="delete()" *ngIf="todo.id">削除する</a>
+      </div>
+  </div>
+</div>
