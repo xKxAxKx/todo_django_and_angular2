@@ -24,4 +24,8 @@ export class TodoListComponent {
     this.todoService.create(this.todo);
   }
 
+  delete(): void {
+    this.todoService.delete(this.todo.id);
+  }
+
 }

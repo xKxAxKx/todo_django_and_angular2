@@ -2,29 +2,21 @@
     <div class="center">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-          <label [ngClass]="{'active': todo.title }" for="input_text">Title</label>
-          <input [(ngModel)]="todo.title" id="input_text" type="text" length="140">
+          <label [ngClass]="{'active': todo.title }" for="input_text">Todoの追加</label>
+          <input [(ngModel)]="todo.title" id="input_text" type="text" length="140" class="form-control add-todo">
+          <button (click)="save()" class="btn btn-success pull-right">追加する</button>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <label [ngClass]="{'active': todo.description }" for="input_text">Description</label>
-          <input [(ngModel)]="todo.description" id="input_text" type="text" length="140">
-        </div>
-      </div>
-      <a href="" (click)="save()">追加する</a>
     </div>
     <hr>
     <div class="todo-list row">
-      <div *ngFor="let todo of todos" class="col s12 m6 l3">
-        <a [routerLink]="['/todo', todo.id]">
-          <div class="todo card hoverable">
-            <div class="card-content">
-              <span class="todo__title black-text">{{todo.title}}</span>
-              <p class="todo__description grey-text">{{todo.description}}</p>
+      <div *ngFor="let todo of todos" class="col-sm-8 col-sm-offset-2">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <a [routerLink]="['/todo', todo.id]">{{todo.title}}</a>
+              <button (click)="delete()" type="button" class="btn btn-success btn-circle pull-right"><i class="glyphicon glyphicon-ok"></i></button>
             </div>
           </div>
-        </a>
       </div>
     </div>
 </div>
