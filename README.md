@@ -18,4 +18,5 @@ $ python manage.py createsuperuser
 install npm module
 ```
 $ npm install
+$ npm install --save bootstrap ng2-bootstrap
 ```
