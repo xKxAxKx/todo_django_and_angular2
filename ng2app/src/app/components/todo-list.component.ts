@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 
 import { TodoService } from '../services/todo.service';
 import { Todo } from '../models/todo.model';
@@ -10,6 +10,8 @@ import { Todo } from '../models/todo.model';
 })
 export class TodoListComponent {
   todos: Todo[] = [];
+  @Input() todo: Todo = new Todo();
+
   constructor(
     private todoService: TodoService
   ){}
@@ -17,4 +19,9 @@ export class TodoListComponent {
   this.todoService.getAllTodo()
     .then(todos => this.todos = todos);
   }
+
+  save(): void {
+    this.todoService.create(this.todo);
+  }
+
 }
