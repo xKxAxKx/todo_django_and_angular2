@@ -18,3 +18,11 @@ body {
 .add-todo {
   margin-top: 10px;
 }
+
+.show{
+opacity: 1 !important;
+}
+.step{
+opacity: 0;
+transition: .5s ease-in-out all;
+}
