@@ -1,4 +1,5 @@
 import { Component,Input } from '@angular/core';
+import { Router, ActivatedRoute, Params }   from '@angular/router';
 
 import { TodoService } from '../services/todo.service';
 import { Todo } from '../models/todo.model';
@@ -13,7 +14,7 @@ export class TodoListComponent {
   @Input() todo: Todo = new Todo();
 
   constructor(
-    private todoService: TodoService
+    private todoService: TodoService,
   ){}
   ngOnInit(): void {
   this.todoService.getAllTodo()
@@ -21,11 +22,14 @@ export class TodoListComponent {
   }
 
   save(): void {
-    this.todoService.create(this.todo);
+    this.todoService
+      .create(this.todo);
   }
 
-  delete(): void {
-    this.todoService.delete(this.todo.id);
+  delete(id): void {
+    this.todoService
+      .delete(id);
   }
+
 
 }

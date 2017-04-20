@@ -2,19 +2,18 @@
     <div class="center">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-          <label [ngClass]="{'active': todo.title }" for="input_text">Todoの追加</label>
-          <input [(ngModel)]="todo.title" id="input_text" type="text" length="140" class="form-control add-todo">
-          <button (click)="save()" class="btn btn-success pull-right">追加する</button>
+          <input [(ngModel)]="todo.title" id="input_text" type="text" length="140" class="form-control add-todo" placeholder="add-todo">
+          <button (click)="save()" class="btn btn-success pull-right add-todo">Add</button>
         </div>
       </div>
     </div>
-    <hr>
+    <hr class="col-sm-8 col-sm-offset-2">
     <div class="todo-list row">
       <div *ngFor="let todo of todos" class="col-sm-8 col-sm-offset-2">
           <div class="panel panel-default">
             <div class="panel-body">
               <a [routerLink]="['/todo', todo.id]">{{todo.title}}</a>
-              <button (click)="delete()" type="button" class="btn btn-success btn-circle pull-right"><i class="glyphicon glyphicon-ok"></i></button>
+              <button (click)="delete(todo.id)" type="button" class="btn btn-success btn-circle pull-right"><i class="glyphicon glyphicon-ok"></i></button>
             </div>
           </div>
       </div>
