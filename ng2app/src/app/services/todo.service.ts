@@ -15,6 +15,7 @@ export class TodoService {
     private http: Http
   ){}
 
+  // 全てのtodoをGETする
   getAllTodo(): Promise<Todo[]> {
     return this.http
       .get(this.Url)
@@ -23,6 +24,7 @@ export class TodoService {
       .catch(this.handleError)
   }
 
+  // id指定したtodoをGETする
   getTodo(id: number): Promise<Todo> {
     const url = `${this.Url}${id}/`;
     return this.http
@@ -32,7 +34,7 @@ export class TodoService {
       .catch(this.handleError);
   }
 
-  // 保存時の挙動
+  // 追加時の挙動
   create(todo: Todo): Promise<Todo> {
     return this.http
       .post(this.Url, JSON.stringify(todo), {headers: this.headers})
@@ -61,8 +63,15 @@ export class TodoService {
       .catch(this.handleError);
   }
 
+  getNewTodo(): Promise<Todo[]> {
+    return this.http
+      .get(this.Url)
+      .toPromise()
+      .then(response => response.json() as Todo[])
+      .catch(this.handleError)
+  }
 
-
+  // エラーハンドリング
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
