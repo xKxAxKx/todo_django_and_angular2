@@ -8,5 +8,5 @@ export class NewTodo {
   count: number;
   next: any;
   previous: any;
-  results: Todo[]
+  results: Todo[];
 }

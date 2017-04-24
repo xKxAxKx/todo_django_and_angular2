@@ -44,6 +44,15 @@ export class TodoService {
       .catch(this.handleError);
 　}
 
+  // 追加された最新のtodoを一件取得する
+  getNewTodo(): Promise<NewTodo[]> {
+    return this.http
+      .get(this.Url+"?limit=1")
+      .toPromise()
+      .then(res => res.json())
+      .catch(this.handleError)
+  }
+
   // 更新時の挙動
   update(todo: Todo): Promise<Todo> {
     const url = `${this.Url}${todo.id}/`;
@@ -64,14 +73,6 @@ export class TodoService {
       .catch(this.handleError);
   }
 
-  // 追加された最新のtodoを一件取得する
-  getNewTodo(): Promise<NewTodo[]> {
-    return this.http
-      .get(this.Url+"?limit=1")
-      .toPromise()
-      .then(res => res.json())
-      .catch(this.handleError)
-  }
 
   // エラーハンドリング
   private handleError(error: any): Promise<any> {

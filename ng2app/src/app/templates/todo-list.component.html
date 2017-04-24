@@ -8,16 +8,17 @@
       </div>
     </div>
     <!--  新規追加した分をここに表示させたい　-->
-    <div class="new-todo-list row" style="margin-top:10px;">
-      <div *ngFor="let todo of newtodos" class="col-sm-8 col-sm-offset-2">
-          <div [class.show]="!todo.hideElement" class="panel panel-default step">
+    {{ newtodo.results }}
+    <!-- <div class="new-todo-list row" style="margin-top:10px;">
+      <div *ngFor="let newtodo of newtodos" class="col-sm-8 col-sm-offset-2">
+          <div class="panel panel-default step">
             <div class="panel-body">
-              <a [routerLink]="['/todo', todo.id]">{{todo.title}}</a>
-              <button (click)="delete(todo.id) || todo.hideElement=true" type="button" class="btn btn-success btn-circle pull-right"><i class="glyphicon glyphicon-ok"></i></button>
+              <a [routerLink]="['/todo', newtodo.results.id]">{{newtodo.results[title]}}</a>
+              <button (click)="delete(newtodo.results.id)" type="button" class="btn btn-success btn-circle pull-right"><i class="glyphicon glyphicon-ok"></i></button>
             </div>
           </div>
       </div>
-    </div>
+    </div> -->
     <!--  新規追加分をここまで　-->
     <hr class="col-sm-8 col-sm-offset-2">
     <!--  リロード時はAPIからGETし全てのtodoを表示させる　-->
