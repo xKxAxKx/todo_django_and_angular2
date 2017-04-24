@@ -11,7 +11,6 @@ import { Todo } from '../models/todo.model';
 })
 export class TodoListComponent {
   todos: Todo[] = [];
-  latestid: any;
   newtodos: Todo[] = [];
   @Input() todo: Todo = new Todo();
 
@@ -26,8 +25,6 @@ export class TodoListComponent {
   save(): void {
     this.todoService
       .create(this.todo);
-    let newtodo = this.todo;
-    this.newtodos.push(newtodo);
   }
 
   delete(id): void {

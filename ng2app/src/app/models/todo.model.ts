@@ -3,3 +3,10 @@ export class Todo {
   title: string;
   description: string;
 }
+
+export class NewTodo {
+  count: number;
+  next: any;
+  previous: any;
+  results: Todo[]
+}
