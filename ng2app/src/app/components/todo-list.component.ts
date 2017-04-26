@@ -2,7 +2,7 @@ import { Component,Input } from '@angular/core';
 import { Router, ActivatedRoute, Params }   from '@angular/router';
 
 import { TodoService } from '../services/todo.service';
-import { Todo, NewTodo } from '../models/todo.model';
+import { Todo } from '../models/todo.model';
 
 @Component({
   selector: 'todo-list',
@@ -11,8 +11,6 @@ import { Todo, NewTodo } from '../models/todo.model';
 })
 export class TodoListComponent {
   todos: Todo[] = [];
-  // 本当はresultsの部分だけいれたい。というか、resultsをメソッドの中でぬき出せればnewtodoは不要になる
-  newtodo: NewTodo[] = [];
   newtodos: Todo[] = [];
   @Input() todo: Todo = new Todo();
 
@@ -24,12 +22,24 @@ export class TodoListComponent {
       .then(todos => this.todos = todos);
   }
 
+  // 保存ボタンを押した時の挙動
   save(): void {
     this.todoService
-      .create(this.todo);
+      .create(this.todo)
+      .then(data => {this.getNewTodo()});
+  }
+
+  // 最新の一件を呼び出す挙動
+  getNewTodo(): void {
     this.todoService
       .getNewTodo()
-      .then(newtodo => this.newtodo = newtodo);
+      .then(res => {this.pushData(res)});
+  }
+
+  // htmlに渡すnewtodosにデータをpushする
+  pushData(data: Todo): void {
+    this.newtodos.push(data);
+    console.log(this.newtodos);
   }
 
   delete(id): void {

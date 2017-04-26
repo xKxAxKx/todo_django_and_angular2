@@ -8,7 +8,6 @@ import { Todo, NewTodo } from '../models/todo.model';
 @Injectable()
 export class TodoService {
   todo: Todo[] = [];
-  newtodo: NewTodo[] = [];
   private Url = `http://127.0.0.1:8000/api/todo/`
   private headers = new Headers({'Content-Type': 'application/json'});
 
@@ -45,11 +44,11 @@ export class TodoService {
 　}
 
   // 追加された最新のtodoを一件取得する
-  getNewTodo(): Promise<NewTodo[]> {
+  getNewTodo(): Promise<Todo> {
     return this.http
       .get(this.Url+"?limit=1")
       .toPromise()
-      .then(res => res.json())
+      .then(res => res.json().results)
       .catch(this.handleError)
   }
 

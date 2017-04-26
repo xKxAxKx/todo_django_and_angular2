@@ -7,21 +7,17 @@
         </div>
       </div>
     </div>
-    <!--  新規追加した分をここに表示させたい　-->
-    {{ newtodo.results }}
-    <!-- <div class="new-todo-list row" style="margin-top:10px;">
+    <div class="newtodo-list row" style="margin-top:10px;">
       <div *ngFor="let newtodo of newtodos" class="col-sm-8 col-sm-offset-2">
-          <div class="panel panel-default step">
+          <div [class.show]="!todo.hideElement" class="panel panel-default step">
             <div class="panel-body">
-              <a [routerLink]="['/todo', newtodo.results.id]">{{newtodo.results[title]}}</a>
-              <button (click)="delete(newtodo.results.id)" type="button" class="btn btn-success btn-circle pull-right"><i class="glyphicon glyphicon-ok"></i></button>
+              <a [routerLink]="['/todo', newtodo.id]">{{newtodo.title}}</a>
+              <button (click)="delete(newtodo.id) || todo.hideElement=true" type="button" class="btn btn-success btn-circle pull-right"><i class="glyphicon glyphicon-ok"></i></button>
             </div>
           </div>
       </div>
-    </div> -->
-    <!--  新規追加分をここまで　-->
+    </div>
     <hr class="col-sm-8 col-sm-offset-2">
-    <!--  リロード時はAPIからGETし全てのtodoを表示させる　-->
     <div class="todo-list row">
       <div *ngFor="let todo of todos" class="col-sm-8 col-sm-offset-2">
           <div [class.show]="!todo.hideElement" class="panel panel-default step">
