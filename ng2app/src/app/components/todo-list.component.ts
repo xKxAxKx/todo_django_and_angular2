@@ -27,6 +27,7 @@ export class TodoListComponent {
     this.todoService
       .create(this.todo)
       .then(data => {this.getNewTodo()});
+    this.todo = new Todo();
   }
 
   // 最新の一件を呼び出す挙動
