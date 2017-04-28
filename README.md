@@ -3,6 +3,13 @@ Simple to-do application using Django Rest Framework and Angular 2
 
 ## SetUp Django
 
+install library
+```
+$ pip install django
+$ pip install djangorestframework
+$ pip install django-filter
+```
+
 migration Django
 ```
 $python manage.py migrate
