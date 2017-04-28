@@ -43,6 +43,7 @@ export class TodoListComponent {
     console.log(this.newtodos);
   }
 
+  // 削除ボタンを押した時の挙動
   delete(id): void {
     this.todoService
       .delete(id);
