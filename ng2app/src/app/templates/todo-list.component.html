@@ -12,7 +12,7 @@
         <div [style.display]="!newtodo.hideElement ? 'inline':'none'">
           <div class="panel panel-default">
             <div class="panel-body">
-              <a [routerLink]="['/todo', newtodo[0].id]">{{newtodo[0].title}}</a>
+              <input [(ngModel)]="newtodo[0].title" id="input_text" type="text" length="140">
               <button (click)="delete(newtodo[0].id) || newtodo.hideElement=true" type="button" class="btn btn-success btn-circle pull-right"><i class="glyphicon glyphicon-ok"></i></button>
             </div>
           </div>
@@ -25,7 +25,7 @@
         <div [style.display]="!todo.hideElement ? 'inline':'none'">
           <div class="panel panel-default">
             <div class="panel-body">
-              <a [routerLink]="['/todo', todo.id]">{{todo.title}}</a>
+              <input [(ngModel)]="todo.title" id="input_text" type="text" length="140">
               <button (click)="delete(todo.id) || todo.hideElement=true" type="button" class="btn btn-success btn-circle pull-right"><i class="glyphicon glyphicon-ok"></i></button>
             </div>
           </div>
