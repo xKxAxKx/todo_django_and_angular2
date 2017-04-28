@@ -8,6 +8,7 @@ install library
 $ pip install django
 $ pip install djangorestframework
 $ pip install django-filter
+$ pip install django-cors-headers
 ```
 
 migration Django
