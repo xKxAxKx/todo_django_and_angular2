@@ -39,8 +39,7 @@ export class TodoListComponent {
 
   // htmlに渡すnewtodosにデータをpushする
   pushData(data: Todo): void {
-    this.newtodos.push(data);
-    console.log(this.newtodos);
+    this.newtodos.unshift(data);
   }
 
   // 削除ボタンを押した時の挙動
