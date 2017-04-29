@@ -12,8 +12,20 @@
         <div [style.display]="!newtodo.hideElement ? 'inline':'none'">
           <div class="panel panel-default">
             <div class="panel-body">
-              <input [(ngModel)]="newtodo[0].title" id="input_text" type="text" length="140">
-              <button (click)="delete(newtodo[0].id) || newtodo.hideElement=true" type="button" class="btn btn-success btn-circle pull-right"><i class="glyphicon glyphicon-ok"></i></button>
+              <span *ngIf="!newtodo.isEdit" (click)="newtodo.isEdit=true" from="name">{{newtodo[0].title}}</span>
+              <input *ngIf="newtodo.isEdit"
+                (keydown.enter)="newtodo.isEdit=false"
+                [(ngModel)]="newtodo[0].title"
+                id="input_text"
+                type="text"
+                length="140"
+              >
+              <button (click)="delete(newtodo[0].id) || newtodo.hideElement=true"
+                type="button"
+                class="btn btn-success btn-circle pull-right"
+              >
+                <i class="glyphicon glyphicon-ok"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -26,8 +38,20 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <span *ngIf="!todo.isEdit" (click)="todo.isEdit=true" from="name">{{todo.title}}</span>
-              <input *ngIf="todo.isEdit" (keydown.enter)="todo.isEdit=false" [(ngModel)]="todo.title" id="input_text" type="text" length="140">
-              <button (click)="delete(todo.id) || todo.hideElement=true" type="button" class="btn btn-success btn-circle pull-right"><i class="glyphicon glyphicon-ok"></i></button>
+              <input *ngIf="todo.isEdit"
+                (keydown.enter)="todo.isEdit=false"
+                [(ngModel)]="todo.title"
+                id="input_text"
+                type="text"
+                length="140"
+              >
+              <button (click)="delete(todo.id) || todo.hideElement=true"
+                type="button"
+                class="btn btn-success
+                btn-circle pull-right"
+              >
+                <i class="glyphicon glyphicon-ok"></i>
+              </button>
             </div>
           </div>
         </div>
