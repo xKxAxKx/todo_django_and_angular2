@@ -2,7 +2,14 @@
     <div class="center">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-          <input [(ngModel)]="todo.title" id="input_text" type="text" length="140" class="form-control add-todo" placeholder="add-todo">
+          <input [(ngModel)]="todo.title"
+            id="input_text"
+            type="text"
+            length="140"
+            class="form-control add-todo"
+            placeholder="add-todo"
+            (keydown.enter)="save()"
+          >
           <button (click)="save()" class="btn btn-success pull-right add-todo">Add</button>
         </div>
       </div>
@@ -14,7 +21,8 @@
             <div class="panel-body">
               <span *ngIf="!newtodo.isEdit" (click)="newtodo.isEdit=true" from="name">{{newtodo[0].title}}</span>
               <input *ngIf="newtodo.isEdit"
-                (keydown.enter)="newtodo.isEdit=false || update(newtodo[0].id, newtodo[0].title)"
+                (keydown.enter)="update(newtodo[0].id, newtodo[0].title)"
+                (focusout)="todo.isEdit=false || update(newtodo[0].id, newtodo[0].title)"
                 [(ngModel)]="newtodo[0].title"
                 id="input_text"
                 type="text"
@@ -37,9 +45,10 @@
         <div [style.display]="!todo.hideElement ? 'inline':'none'">
           <div class="panel panel-default">
             <div class="panel-body">
-              <span *ngIf="!todo.isEdit" (click)="todo.isEdit=true" from="name">{{todo.title}}</span>
+              <span *ngIf="!todo.isEdit" (click)="todo.isEdit=true || focus()" from="name">{{todo.title}}</span>
               <input *ngIf="todo.isEdit"
-                (keydown.enter)="todo.isEdit=false || update(todo.id, todo.title)"
+                (keydown.enter)="update(todo.id, todo.title)"
+                (focusout)="todo.isEdit=false || update(todo.id, todo.title)"
                 [(ngModel)]="todo.title"
                 id="input_text"
                 type="text"
