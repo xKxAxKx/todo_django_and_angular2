@@ -45,7 +45,7 @@
         <div [style.display]="!todo.hideElement ? 'inline':'none'">
           <div class="panel panel-default">
             <div class="panel-body">
-              <span *ngIf="!todo.isEdit" (click)="todo.isEdit=true || focus()" from="name">{{todo.title}}</span>
+              <span *ngIf="!todo.isEdit" (click)="todo.isEdit=true" from="name">{{todo.title}}</span>
               <input *ngIf="todo.isEdit"
                 (keydown.enter)="update(todo.id, todo.title)"
                 (focusout)="todo.isEdit=false || update(todo.id, todo.title)"
