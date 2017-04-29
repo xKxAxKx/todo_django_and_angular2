@@ -6,14 +6,12 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule }   from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoListComponent }      from './components/todo-list.component';
-import { TodoComponent }      from './components/todo.component';
 import { TodoService } from './services/todo.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
-    TodoComponent
   ],
   imports: [
     BrowserModule,
