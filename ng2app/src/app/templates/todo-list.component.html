@@ -25,7 +25,8 @@
         <div [style.display]="!todo.hideElement ? 'inline':'none'">
           <div class="panel panel-default">
             <div class="panel-body">
-              <input [(ngModel)]="todo.title" id="input_text" type="text" length="140">
+              <span *ngIf="!todo.isEdit" (click)="todo.isEdit=true" from="name">{{todo.title}}</span>
+              <input *ngIf="todo.isEdit" (keydown.enter)="todo.isEdit=false" [(ngModel)]="todo.title" id="input_text" type="text" length="140">
               <button (click)="delete(todo.id) || todo.hideElement=true" type="button" class="btn btn-success btn-circle pull-right"><i class="glyphicon glyphicon-ok"></i></button>
             </div>
           </div>
