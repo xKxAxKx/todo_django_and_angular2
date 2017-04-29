@@ -28,6 +28,16 @@ export class TodoListComponent {
       .create(this.todo)
       .then(data => {this.getNewTodo()});
     this.todo = new Todo();
+    console.log(this.todo);
+  }
+
+  // todoを更新した時の挙動(あんまりイケてない気がする...)
+  update(id: number, title: string): void {
+    let todo = {
+      id: id,
+      title: title
+    }
+    this.todoService.update(todo);
   }
 
   // 最新の一件を呼び出す挙動
