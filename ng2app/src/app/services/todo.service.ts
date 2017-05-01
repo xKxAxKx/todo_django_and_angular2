@@ -24,16 +24,6 @@ export class TodoService {
       .catch(this.handleError)
   }
 
-  // id指定したtodoをGETする
-  getTodo(id: number): Promise<Todo> {
-    const url = `${this.Url}${id}/`;
-    return this.http
-      .get(url)
-      .toPromise()
-      .then(res => res.json())
-      .catch(this.handleError);
-  }
-
   // 追加時の挙動
   create(todo: Todo): Promise<Todo> {
     return this.http
