@@ -22,7 +22,7 @@
               <span *ngIf="!newtodo.isEdit" (click)="newtodo.isEdit=true" from="name">{{newtodo[0].title}}</span>
               <input *ngIf="newtodo.isEdit"
                 (keydown.enter)="update(newtodo[0].id, newtodo[0].title)"
-                (focusout)="todo.isEdit=false || update(newtodo[0].id, newtodo[0].title)"
+                (focusout)="newtodo.isEdit=false || update(newtodo[0].id, newtodo[0].title)"
                 [(ngModel)]="newtodo[0].title"
                 id="input_text"
                 type="text"
