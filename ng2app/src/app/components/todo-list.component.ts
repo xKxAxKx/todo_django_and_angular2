@@ -31,7 +31,7 @@ export class TodoListComponent {
     console.log(this.todo);
   }
 
-  // todoを更新した時の挙動(あんまりイケてない気がする...)
+  // todoを更新した時の挙動
   update(id: number, title: string): void {
     let todo = {
       id: id,
