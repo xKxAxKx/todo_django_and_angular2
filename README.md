@@ -43,5 +43,5 @@ $ npm install --save bootstrap ng2-bootstrap
 start Angular
 ```
 $ cd ng2app
-$ cd ng serve
+$ ng serve
 ```
