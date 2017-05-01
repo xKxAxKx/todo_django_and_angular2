@@ -21,7 +21,6 @@
             <div class="panel-body">
               <span *ngIf="!newtodo.isEdit" (click)="newtodo.isEdit=true" from="name">{{newtodo[0].title}}</span>
               <input *ngIf="newtodo.isEdit"
-                (keydown.enter)="update(newtodo[0].id, newtodo[0].title)"
                 (focusout)="newtodo.isEdit=false || update(newtodo[0].id, newtodo[0].title)"
                 [(ngModel)]="newtodo[0].title"
                 id="input_text"
@@ -48,7 +47,6 @@
             <div class="panel-body">
               <span *ngIf="!todo.isEdit" (click)="todo.isEdit=true" from="name">{{todo.title}}</span>
               <input *ngIf="todo.isEdit"
-                (keydown.enter)="update(todo.id, todo.title)"
                 (focusout)="todo.isEdit=false || update(todo.id, todo.title)"
                 [(ngModel)]="todo.title"
                 id="input_text"
