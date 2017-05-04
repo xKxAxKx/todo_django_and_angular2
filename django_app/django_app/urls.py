@@ -17,8 +17,11 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from to_do.urls import router as to_do_router
+from users.urls import router as users_router
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(to_do_router.urls)),
+    url(r'^api/', include(users_router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
