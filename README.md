@@ -38,6 +38,7 @@ install npm module
 ```
 $ npm install
 $ npm install --save bootstrap ng2-bootstrap
+$ npm install angular2-jwt --save
 ```
 
 start Angular
