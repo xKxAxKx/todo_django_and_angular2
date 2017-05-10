@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'to_do',
-    'users',
     'rest_framework',
     'corsheaders',
 ]
@@ -131,10 +130,23 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
 
 REST_FRAMEWORK = {
+    # ページネーションの設定
      'DEFAULT_PAGINATION_CLASS': (
         'rest_framework.pagination.LimitOffsetPagination'
     ),
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    # JWTの認証設定
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ),
+    'NON_FIELD_ERRORS_KEY': 'detail',
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+}
+
+# JWTの認証追加
+JWT_AUTH = {
+    # トークンの期限をここでは無効にしてみる
+    'JWT_VERIFY_EXPIRATION': False,
 }

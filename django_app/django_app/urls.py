@@ -17,11 +17,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from to_do.urls import router as to_do_router
-from users.urls import router as users_router
+
+# 認証を追加
+from rest_framework_jwt.views import obtain_jwt_token
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(to_do_router.urls)),
-    url(r'^api/', include(users_router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api-auth/', obtain_jwt_token),
 ]
