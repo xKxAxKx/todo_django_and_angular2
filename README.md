@@ -1,6 +1,8 @@
 ## What is this?
 Simple to-do application using Django Rest Framework and Angular 2
 
+It is under development and it is incomplete.
+
 ## SetUp Django
 
 install library
