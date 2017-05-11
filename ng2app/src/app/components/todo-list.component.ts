@@ -28,7 +28,6 @@ export class TodoListComponent {
       .create(this.todo)
       .then(data => {this.getNewTodo()});
     this.todo = new Todo();
-    console.log(this.todo);
   }
 
   // todoを更新した時の挙動
