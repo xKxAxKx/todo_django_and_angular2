@@ -10,4 +10,28 @@ import { AuthService } from '../services/auth.service';
 })
 export class AuthComponent {
 
+  constructor(
+    private authService: AuthService,
+  ){}
+
+  login(): void{
+
+  }
+
+  logout(): void{
+
+  }
+
+  signup(): void{
+
+  }
+
+  deleteUser(): void{
+
+  }
+
+  editUser(): void{
+
+  }
+
 }
