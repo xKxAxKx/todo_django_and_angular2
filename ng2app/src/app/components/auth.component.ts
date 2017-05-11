@@ -10,14 +10,29 @@ import { LoginUser } from '../models/models';
   styleUrls: ['../static/auth.component.css']
 })
 export class AuthComponent {
-  loginuser: LoginUser[] = [];
+  loginuser: any = {};
+  returnUrl: string;
 
   constructor(
     private authService: AuthService,
+    private route: ActivatedRoute,
+    private router: Router,
   ){}
 
-  login(): void{
+  ngOnInit() {
+     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
 
+  login() {
+    this.authService.login(this.loginuser.username, this.loginuser.password)
+      .subscribe(
+        data => {
+          this.router.navigate([this.returnUrl]);
+        },
+        error => {
+
+        }
+      );
   }
 
   logout(): void{
