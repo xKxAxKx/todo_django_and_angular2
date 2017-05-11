@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { TodoListComponent }      from './components/todo-list.component';
 import { TodoService } from './services/todo.service';
 import { AuthComponent }      from './components/auth.component';
+import { AuthService }      from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AuthComponent }      from './components/auth.component';
   ],
   providers: [
     TodoService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
