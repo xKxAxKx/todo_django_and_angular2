@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map'
 
 import { LoginUser } from '../models/models';
 
@@ -8,7 +10,22 @@ export class AuthService {
   loginuser: LoginUser[] = [];
   private AuthUrl = `http://127.0.0.1:8000/api-auth/`
 
-  login(username:string, password:string) {
+  constructor(
+    private http: Http
+  ){}
 
+  login(username: string, password: string) {
+    return this.http
+      .post(this.AuthUrl, {username: username, password: password})
+      .map((response: Response) =>{
+        let user = response.json();
+        if (user && user.token){
+          localStorage.setItem('currentUser', JSON.stringify(user));
+        }
+      });
+  }
+
+  logout() {
+    localStorage.removeItem('currentUser');
   }
 }
