@@ -41,7 +41,8 @@ install npm module
 ```
 $ npm install
 $ npm install --save bootstrap ng2-bootstrap
-$ npm install angular2-jwt --save
+$ npm i -S auth0-lock angular2-jwt
+$ npm i -D @types/auth0-lock
 ```
 
 start Angular

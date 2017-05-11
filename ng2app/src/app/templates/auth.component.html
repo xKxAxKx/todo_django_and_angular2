@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="center">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <form action="" (submit)="loginWithPassword()">
+          <div class="lg-Input">
+            <input type="text"
+              class="form-control login-form"
+              placeholder="username"
+              name="email"
+            >
+          </div>
+          <div class="lg-Input">
+            <input type="password"
+              class="form-control login-form"
+              #password
+              [(ngModel)]="authStore.loginPassword"
+              placeholder="password"
+              name="password"
+            >
+          </div>
+          <button class="btn btn-success pull-right login-form" (click)="save()">
+            ログインする
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
