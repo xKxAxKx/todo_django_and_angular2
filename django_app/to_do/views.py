@@ -17,4 +17,4 @@ class TodoViewSet(viewsets.ModelViewSet):
     # 認証設定
     # CURD全てに認証掛けたい場合は (permissions.IsAuthenticated,)
     # Read Onlyの場合は (permissions.IsAuthenticatedOrReadOnly,)
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly)

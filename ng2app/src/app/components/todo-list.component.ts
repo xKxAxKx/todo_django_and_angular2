@@ -2,7 +2,8 @@ import { Component,Input } from '@angular/core';
 import { Router, ActivatedRoute, Params }   from '@angular/router';
 
 import { TodoService } from '../services/todo.service';
-import { Todo } from '../models/models';
+import { AuthService } from '../services/auth.service';
+import { Todo, LoginUser } from '../models/models';
 
 @Component({
   selector: 'todo-list',
@@ -13,10 +14,17 @@ export class TodoListComponent {
   todos: Todo[] = [];
   newtodos: Todo[] = [];
   @Input() todo: Todo = new Todo();
+  currentUser: LoginUser;
+  users: LoginUser[] = [];
 
   constructor(
     private todoService: TodoService,
-  ){}
+    private authService: AuthService,
+  ){
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(this.currentUser);
+  }
+
   ngOnInit(): void {
     this.todoService.getAllTodo()
       .then(todos => this.todos = todos);

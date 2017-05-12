@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import { Todo } from '../models/models';
+import { Todo, LoginUser } from '../models/models';
 
 @Injectable()
 export class TodoService {
@@ -67,4 +67,5 @@ export class TodoService {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
+
 }
