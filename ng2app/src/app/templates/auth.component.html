@@ -2,7 +2,7 @@
   <div class="center">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
-        <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <form name="form" (ngSubmit)="login()" #f="ngForm" novalidate>
           <div cclass="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
             <input
               type="text"
