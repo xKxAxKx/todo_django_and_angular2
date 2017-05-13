@@ -6,13 +6,23 @@ import { Todo, LoginUser } from '../models/models';
 
 @Injectable()
 export class TodoService {
+  private currentUser = JSON.parse(localStorage.getItem('currentUser'));
   todo: Todo[] = [];
   private Url = `http://127.0.0.1:8000/api/todo/`
-  private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(
     private http: Http
   ){}
+
+  private jwt() {
+    // create authorization header with jwt token
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser && currentUser.token) {
+        let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'JWT ' + currentUser.token });
+        console.log(headers);
+        return new RequestOptions({ headers: headers });
+    }
+  }
 
   // 全てのtodoをGETする
   getAllTodo(): Promise<Todo[]> {
@@ -26,7 +36,7 @@ export class TodoService {
   // 追加時の挙動
   create(todo: Todo): Promise<Todo> {
     return this.http
-      .post(this.Url, JSON.stringify(todo), {headers: this.headers})
+      .post(this.Url, JSON.stringify(todo), this.jwt())
       .toPromise()
       .then(res => res.json())
       .catch(this.handleError);
@@ -45,7 +55,7 @@ export class TodoService {
   update(todo: Todo): Promise<Todo> {
     const url = `${this.Url}${todo.id}/`;
     return this.http
-      .put(url, JSON.stringify(todo), {headers: this.headers})
+      .put(url, JSON.stringify(todo), this.jwt())
       .toPromise()
       .then(res => res.json())
       .catch(this.handleError);
@@ -55,7 +65,7 @@ export class TodoService {
   delete(id: number): Promise<void> {
     const url = `${this.Url}${id}/`;
     return this.http
-      .delete(url, {headers: this.headers})
+      .delete(url, this.jwt())
       .toPromise()
       .then(() => null)
       .catch(this.handleError);
