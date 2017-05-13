@@ -35,9 +35,6 @@ export class AuthComponent {
       );
   }
 
-  logout(): void{
-
-  }
 
   signup(): void{
 

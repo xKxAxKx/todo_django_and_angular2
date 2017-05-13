@@ -20,6 +20,7 @@ export class TodoListComponent {
   constructor(
     private todoService: TodoService,
     private authService: AuthService,
+    private router: Router,
   ){
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
@@ -63,6 +64,11 @@ export class TodoListComponent {
   delete(id): void {
     this.todoService
       .delete(id);
+  }
+
+  logout(): void{
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }
