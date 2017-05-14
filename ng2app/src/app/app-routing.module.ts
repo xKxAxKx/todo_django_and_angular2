@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { TodoListComponent }    from './components/todo-list.component';
 import { AuthComponent }    from './components/auth.component';
+import { AuthGuard }      from './guards/auth.guard';
+
 
 const routes: Routes = [
-  { path: '',  component: TodoListComponent },
+  { path: '',  component: TodoListComponent, canActivate: [AuthGuard] },
   { path: 'login',  component: AuthComponent },
 ];
 @NgModule({
