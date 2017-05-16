@@ -23,7 +23,6 @@ export class TodoListComponent {
     private router: Router,
   ){
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    console.log(this.currentUser);
   }
 
   ngOnInit(): void {
