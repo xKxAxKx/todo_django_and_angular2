@@ -21,6 +21,7 @@ export class AuthComponent {
 
   ngOnInit() {
      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+     this.checklogin();
   }
 
   login() {
@@ -46,6 +47,12 @@ export class AuthComponent {
 
   editUser(): void{
 
+  }
+
+  checklogin(): void {
+    if(localStorage.getItem('currentUser')) {
+      this.router.navigate(['/']);
+    }
   }
 
 }
