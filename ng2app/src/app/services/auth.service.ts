@@ -7,7 +7,7 @@ import { LoginUser } from '../models/models';
 
 @Injectable()
 export class AuthService {
-  loginuser: LoginUser[] = [];
+  userLogin: boolean = false;
   private AuthUrl = `http://127.0.0.1:8000/api-auth/`
 
   constructor(
@@ -21,7 +21,7 @@ export class AuthService {
         let user = response.json();
         if (user && user.token){
           localStorage.setItem('currentUser', JSON.stringify(user));
-          console.log(localStorage);
+          this.userLogin = true;
         }
       });
   }

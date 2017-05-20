@@ -2,7 +2,7 @@
   <div class="container">
     <a href="/" class="title navbar-brand">Simple Todo</a>
     <ul class="nav navbar-nav navbar-right">
-      <li *ngIf="currentUser">
+      <li *ngIf="authService.userLogin">
         <a href="/" (click)="logout()">Logout</a>
       </li>
     </ul>

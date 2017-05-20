@@ -12,6 +12,7 @@ import { LoginUser } from '../models/models';
 export class AuthComponent {
   loginuser: any = {};
   returnUrl: string;
+  errorMessage: string;
 
   constructor(
     private authService: AuthService,
@@ -31,7 +32,7 @@ export class AuthComponent {
           this.router.navigate([this.returnUrl]);
         },
         error => {
-
+          this.errorMessage = "ユーザ名かパスワードが間違っています";
         }
       );
   }

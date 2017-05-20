@@ -10,14 +10,15 @@ import { LoginUser } from '../models/models';
   styleUrls: ['../static/header.component.css']
 })
 export class HeaderComponent {
-  currentUser: LoginUser;
-
   constructor(
     private authService: AuthService,
     private router: Router,
   ){
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    console.log(this.currentUser);
+
+  }
+
+  ngOnInit() {
+
   }
 
   logout(): void{
