@@ -10,12 +10,14 @@ import { TodoService } from './services/todo.service';
 import { AuthComponent }      from './components/auth.component';
 import { AuthService }      from './services/auth.service';
 import { AuthGuard }      from './guards/auth.guard';
+import { HeaderComponent }      from './components/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
     AuthComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

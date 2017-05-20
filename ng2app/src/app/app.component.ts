@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
+    <header header></header>
     <h1 class="text-center">
       <span class="title">{{ title }}</span>
       <p class="sub-title">{{ subtitle }}</p>
