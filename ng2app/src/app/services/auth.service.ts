@@ -8,6 +8,7 @@ import { LoginUser } from '../models/models';
 @Injectable()
 export class AuthService {
   userLogin: boolean = false;
+  signUp: boolean = false;
   private AuthUrl = `http://127.0.0.1:8000/api-auth/`
 
   constructor(

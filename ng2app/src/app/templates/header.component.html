@@ -5,6 +5,12 @@
       <li *ngIf="authService.userLogin">
         <a href="/" (click)="logout()">Logout</a>
       </li>
+      <li *ngIf="!authService.userLogin && !authService.signUp">
+        <a (click)="authService.signUp = true">SignUp</a>
+      </li>
+      <li *ngIf="!authService.userLogin && authService.signUp">
+        <a (click)="authService.signUp = false">Login</a>
+      </li>
     </ul>
   </div>
 </nav>

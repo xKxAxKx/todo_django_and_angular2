@@ -1,7 +1,8 @@
 <div class="container">
   <div class="center">
     <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div *ngIf="!authService.signUp" class="col-sm-8 col-sm-offset-2">
+        <h3>Login</h3>
         <form name="form" (ngSubmit)="login()" #f="ngForm" novalidate>
           <div cclass="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
             <input
@@ -32,6 +33,10 @@
         <div *ngIf="errorMessage">
           {{errorMessage}}
         </div>
+      </div>
+
+      <div *ngIf="authService.signUp" class="col-sm-8 col-sm-offset-2">
+        <h3>SignUp</h3>
       </div>
     </div>
   </div>
