@@ -1,3 +1,10 @@
-<nav>
-  <h1>Simple Todo</h1>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <a href="/" class="title navbar-brand">Simple Todo</a>
+    <ul class="nav navbar-nav navbar-right">
+      <li *ngIf="currentUser">
+        <a href="/" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
 </nav>
