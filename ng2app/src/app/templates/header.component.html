@@ -3,13 +3,13 @@
     <a href="/" class="title navbar-brand">Simple Todo</a>
     <ul class="nav navbar-nav navbar-right">
       <li *ngIf="authService.userLogin">
-        <a href="/" (click)="logout()">Logout</a>
+        <a (click)="logout()" class="cursor_pointer">Logout</a>
       </li>
       <li *ngIf="!authService.userLogin && !authService.signUp">
-        <a (click)="authService.signUp = true">SignUp</a>
+        <a (click)="authService.signUp = true" class="cursor_pointer">SignUp</a>
       </li>
       <li *ngIf="!authService.userLogin && authService.signUp">
-        <a (click)="authService.signUp = false">Login</a>
+        <a (click)="authService.signUp = false" class="cursor_pointer">Login</a>
       </li>
     </ul>
   </div>
