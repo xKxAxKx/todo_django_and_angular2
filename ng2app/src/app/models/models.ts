@@ -4,7 +4,7 @@ export class Todo {
 }
 
 export class LoginUser {
-  username: string;
+  username?: string;
   email?: string;
   password: string;
 }
