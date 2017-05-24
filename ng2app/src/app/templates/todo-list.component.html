@@ -8,7 +8,7 @@
             length="140"
             class="form-control add-todo"
             placeholder="add-todo"
-            (keydown.enter)="save()"
+            (focusout)="save()"
           >
           <button (click)="save()" class="btn btn-success pull-right add-todo">Add</button>
         </div>
