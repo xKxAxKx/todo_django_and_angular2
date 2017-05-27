@@ -31,4 +31,8 @@ export class AuthService {
     localStorage.removeItem('currentUser');
     this.userLogin = false;
   }
+
+  signup(username: string, password:string, email:string) {
+    console.log("test");
+  }
 }
