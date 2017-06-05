@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'to_do',
+    'authentication',
     'rest_framework',
     'corsheaders',
 ]
@@ -125,6 +126,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CORS_ALLOW_CREDENTIALS = True
+
+AUTH_USER_MODEL = 'authentication.Account'
 
 # 全てのXMLHTMLを許可する
 CORS_ORIGIN_ALLOW_ALL = True
