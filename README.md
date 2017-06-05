@@ -1,7 +1,13 @@
 ## What is this?
 Simple to-do application using Django Rest Framework and Angular 2
 
-It is under development and it is incomplete.
+Authentication function is currently under development.
+
+## Operating environment
+
+- python 3.6.0
+- node 7.5.0
+- npm 4.1.2
 
 ## SetUp Django
 
@@ -50,3 +56,7 @@ start Angular
 $ cd ng2app
 $ ng serve
 ```
+
+## How to Login
+Please use supereuser username and password.
+(Authentication function is currently under development.)
