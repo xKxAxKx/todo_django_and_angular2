@@ -1,7 +1,6 @@
 import { Component,Input } from '@angular/core';
 import { Router, ActivatedRoute, Params }   from '@angular/router';
 
-import { AuthService } from '../services/auth.service';
 import { LoginUser } from '../models/models';
 
 @Component({
@@ -11,7 +10,6 @@ import { LoginUser } from '../models/models';
 })
 export class HeaderComponent {
   constructor(
-    private authService: AuthService,
     private router: Router,
   ){
 
@@ -21,8 +19,4 @@ export class HeaderComponent {
 
   }
 
-  logout(): void{
-    this.authService.logout();
-    this.router.navigate(['/auth']);
-  }
 }

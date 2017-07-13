@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'to_do',
-    'authentication',
     'rest_framework',
     'corsheaders',
 ]
@@ -127,8 +126,6 @@ STATIC_URL = '/static/'
 
 CORS_ALLOW_CREDENTIALS = True
 
-AUTH_USER_MODEL = 'authentication.Account'
-
 # 全てのXMLHTMLを許可する
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -139,17 +136,11 @@ REST_FRAMEWORK = {
     ),
     # JWTの認証設定
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
     'NON_FIELD_ERRORS_KEY': 'detail',
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
-}
-
-# JWTの認証追加
-JWT_AUTH = {
-    # トークンの期限をここでは無効にしてみる
-    'JWT_VERIFY_EXPIRATION': False,
 }
