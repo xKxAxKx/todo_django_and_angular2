@@ -22,15 +22,16 @@ export class TodoListComponent {
   }
 
   ngOnInit(): void {
+    // すべてのtodoを取得する
     this.todoService.getAllTodo()
-      .then(todos => this.todos = todos);
+      .subscribe(todos => this.todos = todos);
   }
 
   // 保存ボタンを押した時の挙動
   save(): void {
     this.todoService
       .create(this.todo)
-      .then(data => {this.getNewTodo()});
+      .subscribe(data => {this.getNewTodo()});
     this.todo = new Todo();
   }
 
@@ -47,7 +48,7 @@ export class TodoListComponent {
   getNewTodo(): void {
     this.todoService
       .getNewTodo()
-      .then(res => {this.pushData(res)});
+      .subscribe(res => {this.pushData(res)});
   }
 
   // htmlに渡すnewtodosにデータをpushする

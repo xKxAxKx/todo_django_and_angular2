@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { Todo } from '../models/models';
 
@@ -16,34 +18,31 @@ export class TodoService {
   ){}
 
   // 全てのtodoをGETする
-  getAllTodo(): Promise<Todo[]> {
+  getAllTodo() {
     return this.http
       .get(this.Url)
-      .toPromise()
-      .then(response => response.json() as Todo[])
-      .catch(this.handleError)
+      .map(res => res.json() as Todo[])
+      .catch(this.handleError);
   }
 
   // 追加時の挙動
-  create(todo: Todo): Promise<Todo> {
+  create(todo: Todo) {
     return this.http
       .post(this.Url, JSON.stringify(todo), {headers: this.headers})
-      .toPromise()
-      .then(res => res.json())
+      .map(res => res.json())
       .catch(this.handleError);
 　}
 
   // 追加された最新のtodoを一件取得する
-  getNewTodo(): Promise<Todo> {
+  getNewTodo() {
     return this.http
       .get(this.Url+"?limit=1")
-      .toPromise()
-      .then(res => res.json().results)
-      .catch(this.handleError)
+      .map(res => res.json().results)
+      .catch(this.handleError);
   }
 
   // 更新時の挙動
-  update(todo: Todo): Promise<Todo> {
+  update(todo: Todo){
     const url = `${this.Url}${todo.id}/`;
     return this.http
       .put(url, JSON.stringify(todo), {headers: this.headers})
